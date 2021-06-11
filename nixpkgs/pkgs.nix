@@ -1,0 +1,49 @@
+{pkgs,...}:
+
+{
+home.packages = with pkgs; [
+	alacritty
+	acpi
+	arc-icon-theme
+	appimage-run
+	bat
+	brightnessctl
+	discord
+	dunst
+	exa
+	feh
+	file
+	fish
+	font-awesome
+	flameshot
+	fd
+	ffmpeg
+	git
+	gnumake
+	htop
+	joypixels
+	liberation_ttf
+	lm_sensors
+	mc
+	neofetch
+	nerdfonts
+	nodejs
+	open-sans
+	picom
+	playerctl
+	pfetch
+	qt5ct
+	ripgrep
+	ranger
+	st
+	sublime3
+	spotify
+	sxiv
+	tdesktop
+	ungoogled-chromium
+	ueberzug
+	unzip
+	zip
+	zoom-us
+    ];
+}
