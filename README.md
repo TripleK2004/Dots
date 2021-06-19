@@ -1,2 +1,3 @@
 # nixpkgs
-Personal Repo to maintain my .nix files 
+Personal Repo to maintain configuration files of Linux Utilities and Applications
+
