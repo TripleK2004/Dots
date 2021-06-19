@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkgs=$(apt list --installed 2> /dev/null | wc -l)
+echo -e "  ^c#6272a4^$pkgs"
+

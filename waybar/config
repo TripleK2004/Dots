@@ -1,0 +1,158 @@
+{
+    "layer": "bottom",
+    "position": "top", 
+    "height": 16, 
+    "width": 1280, 
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": [],
+    "modules-right": ["idle_inhibitor", "network","idle_inhibitor#idlinhbtr1",
+    "memory","idle_inhibitor#idlinhbtr2", "cpu","idle_inhibitor#idlinhbtr3",
+    "temperature","idle_inhibitor#idlinhbtr4","battery","idle_inhibitor#idlinhbtr5", "pulseaudio",
+    "idle_inhibitor#idlinhbtr6","backlight", "idle_inhibitor#idlinhbtr7", "clock"],
+    "sway/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "  ",
+            "3": "",
+            "4": "  ",
+            "5": " ",
+            "6": "  ",
+            "7": " ",
+            "8": " ",
+            "9": " ",
+            "urgent": "",
+            "focused": " ",
+            "default": "  "
+        }
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%d %B (%a)     %l:%M%p  }"
+    },
+    "cpu": {
+        "format": " CPU {usage}%   ",
+        "tooltip": true,
+        "interval": 2
+    },
+    "memory": {
+        "format": " RAM {used:0.1F}g   ",
+        "interval": 2
+        },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": " TEMP  {temperatureC}°C  {icon} ",
+        "format-icons": ["", "", ""],
+        "interval": 2
+    },
+    "backlight": {
+        "format": " BRT {percent}% {icon} ",
+        "format-icons": [" ", " "],
+        "on-scroll-up": "light -A 3",
+        "on-scroll-down": "light -U 3"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " BAT {capacity}% {icon} ",
+        "format-charging": "BAT {capacity}% ",
+        "format-plugged": "BAT {capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "network": {
+    "interface": "enp2s0",
+    "format": "  {bandwidthDownOctets}   {bandwidthUpOctets} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "interval": 4
+    },
+    "pulseaudio": {
+    "format": " VOL {volume}% {icon} {format_source} ",
+    "format-muted": "",
+    "format-source": "{volume}%  ",
+    "format-source-muted": "",
+    "format-icons": {
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
+        "phone": " ",
+        "portable": "",
+        "car": "",
+        "default": [" ", " "]
+    },
+    "scroll-step": 1,
+    "on-click": "amixer set Master toggle"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr1": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr2": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr3": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr4": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr5": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr6": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "idle_inhibitor#idlinhbtr7": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    }
+
+};

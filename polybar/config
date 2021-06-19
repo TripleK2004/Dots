@@ -1,0 +1,308 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+
+background = #282a36
+current-line = #44475a
+white = #f8f8f2
+comment = #6272a4
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+[bar/polybar]
+width = 100%
+height = 25
+offset-x = 0%
+offset-y = 0.3%
+radius = 0
+fixed-center = true
+
+;background = #00FFFFFF
+background = #282a36
+foreground = #00FFFFFF
+
+line-size = 2
+line-color = #000000
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "Liberation Sans:size=11;2"
+font-1 = "FiraMono Nerd Font:size=15;5"
+font-2 = "Font Awesome 5 Brands:pixelsize=12;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=13;1"
+font-5 = "Iosevka:style=Regular:size=17;5"
+
+modules-left = left ewmh right space1 left xwindow right
+modules-center = 
+modules-right = left space2 downspeed space2 upspeed space2 right space1 left space2 temperature space2 cpu space2 memory space2 battery space2 backlight space2 pulseaudio space2 right space1 left date right 
+
+tray-position = right
+tray-padding = 2
+
+wm-restack = bspwm
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+margin-top = 0
+margin-bottom = 0
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = false
+
+icon-0 = I;  
+icon-1 = II; 
+icon-2 = III; 
+icon-3 = IV; 
+icon-4 = V; 
+icon-5 = VI; 
+icon-6 = VII; 
+icon-7 = VIII; 
+icon-8 = IX;  
+icon-default = " "
+
+label-active = %icon% 
+label-active-foreground = ${colors.cyan}
+label-active-background = ${colors.background}
+;label-active-underline = ${colors.cyan}
+label-active-padding = 1
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.purple}
+label-occupied-background = ${colors.background}
+;label-occupied-underline = ${colors.background}
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
+;label-urgent-underline = ${colors.background}
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-foreground = ${colors.white}
+label-empty-background = ${colors.background}
+;label-empty-underline = ${colors.background}
+label-empty-padding = 1
+
+label-active-font = 3
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+format-background = ${colors.background} 
+format-foreground = ${colors.purple}
+format-padding = 4
+label = %title:0:30:...%
+label-maxlen = 250
+label-empty = Gentoo
+label-empty-foreground = ${colors.purple}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+use-actual-brightness = true
+enable-scroll = true
+format = <label>
+label = %percentage%%
+format-prefix = " "
+label-foreground = ${colors.orange}
+label-background = ${colors.background}
+format-prefix-foreground = ${colors.orange}
+format-prefix-background = ${colors.background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.red}
+format-prefix-background = ${colors.background}
+label-foreground = ${colors.red}
+label-background = ${colors.background}
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.pink}
+format-prefix-background = ${colors.background}
+label-foreground = ${colors.pink}
+label-background = ${colors.background}
+label = %gb_used%
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+
+label-discharging =   %percentage%%
+format-discharging = <label-discharging>
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.yellow}
+
+label-charging =   %percentage%%
+format-charging = <label-charging>
+format-charging-foreground = ${colors.green}
+format-charging-background = ${colors.background}
+
+format-full-prefix = " "
+format-active-font = 4
+format-full-foreground = ${colors.green}
+format-full-background = ${colors.background}
+
+[module/upspeed]
+type = internal/network
+interface = enp0s20f0u3
+unknown-as-up = true
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected =  %upspeed% 
+label-connected-foreground = ${colors.yellow}
+label-connected-background = ${colors.background}
+format-connected-foreground = ${colors.yellow}
+format-connected-background = ${colors.background}
+
+[module/downspeed]
+type = internal/network
+interface = enp0s20f0u3
+unknown-as-up = true
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected =  %downspeed%
+label-connected-foreground = ${colors.red}
+label-connected-background = ${colors.background}
+format-connected-foreground = ${colors.red}
+format-connected-background = ${colors.background}
+
+[module/date]
+type = internal/date
+interval = 60
+
+date = " %d %B (%a)"
+time = %l:%M%p
+
+label =  %date%  %time%
+label-foreground = ${colors.red}
+label-background = ${colors.background}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> 
+label-volume =  %percentage%%
+format-volume-foreground = ${colors.cyan}
+format-volume-background = ${colors.background}
+label-volume-foreground = ${colors.cyan}
+label-volume-background = ${colors.background}
+
+label-muted = 婢 muted
+label-muted-foreground = ${colors.yellow}
+label-muted-background = ${colors.background}
+
+[module/temperature]
+type = internal/temperature
+hwmon-path = /sys/class/hwmon/hwmon6/temp1_input
+format = <label>
+label =  %temperature-c%
+label-foreground = ${colors.yellow}
+label-background = ${colors.background}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[global/wm]
+margin-top = 5
+margin-bottom = 0
+
+[glyph]
+garrowleft = 
+garrowright = 
+gleft = 
+gright = 
+
+[module/left]
+type = custom/text
+content-background = #282a36
+content-foreground = #282a36
+content = ${glyph.gleft}
+content-font = 3
+
+[module/right]
+type = custom/text
+content-background = #282a36
+content-foreground = #282a36
+content = ${glyph.gright}
+content-font = 1
+
+[module/space1]
+type = custom/text
+content = "    "
+content-font = 3
+
+[module/space2]
+type = custom/text
+content = "  "
+content-font = 3
+content-background = #282a36
+content-foreground = #282a36

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+VOLUME=$(awk -F "[][]" '/%/ { print $2 }' <(amixer sget Master) | head -n 1)
+
+# check if muted
+if [[ $(amixer sget Master) == *"[off]"* ]]; then
+	VOL_ICON="🔇"
+else
+	VOL_ICON="🔊"
+fi
+
+echo "full_text:$VOL_ICON $VOLUME"

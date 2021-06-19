@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#BRIGHTNESS="$(xbacklight | sed 's/\([^.]*\).*/\1/')"
+BRIGHTNESS="$(xbacklight -get)"
+echo "^c#ffb86c^  ${BRIGHTNESS}%"
+

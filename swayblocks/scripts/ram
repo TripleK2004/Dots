@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ram="$(free -h | awk '{print $3}' | sed -n '2p')"
+echo "full_text:🧠  $ram"

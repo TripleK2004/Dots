@@ -1,0 +1,4 @@
+#!/bin/bash
+
+disk="$(df -Th /dev/sda3 | awk '{print $5}' | sed -n '2p')"
+echo ^c#ffb86c^ ${disk}

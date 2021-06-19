@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ram="$(free -h | awk '{print $3}' | sed -n '2p')"
+echo -e "^c#ff79c6^  $ram"

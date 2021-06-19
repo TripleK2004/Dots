@@ -1,0 +1,4 @@
+#!/bin/bash
+
+date="$(date "+%d %B (%a) %l:%M%p")"
+echo -e "^c#bd93f9^  ${date}"

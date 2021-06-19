@@ -1,0 +1,235 @@
+#!/bin/bash
+
+set $mod Mod4
+
+font pango: Liberation Sans 10
+title_align center
+
+default_border pixel 3
+
+gaps inner 9
+gaps outer 2
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term st -e /bin/fish
+
+set $menu bemenu-run --fn 'Liberation Sans 12' --tb '#282a36' --tf '#bd93f9' --fb '#282a36' --ff '#8be9fd' --nb '#282a36' --nf '#f1fa8c' --hf '#50fa7b' --prompt debian
+#set $menu dmenu_run -fn 'Liberation Sans' -nb '#282a36' -nf '#bd93f9' -sb '#f1fa8c' -sf '#282a36' -h 23
+
+output * bg /home/triplek/Pictures/wallpapers/gentoo-drac.png fill
+#set $wallpapers_path $HOME/Pictures/wlpapers
+#output * bg $(find $wallpapers_path -type f | shuf -n 1) fill
+
+output HDMI-A-1 resolution 1920x1080 position 1920,0
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+w kill
+
+    # Start your launcher
+    bindsym $mod+space exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+q exec pkill sway 
+    # swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+#
+# Workspaces:
+#
+
+    set $ws1 "1:  "
+    set $ws2 "2:   "
+    set $ws3 "3:  "
+    set $ws4 "4:  "
+    set $ws5 "5:  "
+    set $ws6 "6:  "
+    set $ws7 "7:  "
+    set $ws8 "8:  "
+    set $ws9 "9:  "
+    set $ws10 "10:   "
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+    # class                 border  backgr. text    indicator child_border
+    client.focused          #bd93f9 #bd93f9 #282a36 #bd93f9   #bd93f9
+    client.focused_inactive #282a36 #282a36 #bd93f9 #282a36   #282a36
+    client.unfocused        #282a36 #282a36 #bd93f9 #282a36   #282a36
+    client.urgent           #2f343a #900000 #ffffff #900000   #900000
+    client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+    client.background       #ffffff
+#
+# Layout stuff:
+#
+    bindsym $mod+Right splith
+    bindsym $mod+Down splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+F1 layout toggle split
+    bindsym $mod+F2 layout tabbed
+    bindsym $mod+F3 layout stacking
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+s floating toggle
+
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+grave move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+grave scratchpad show
+
+#
+# Brightness and Sound
+#
+bindsym XF86MonBrightnessDown exec xbacklight -dec 3
+bindsym XF86MonBrightnessUp exec xbacklight -inc 3
+
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle 
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+
+#
+# GTK theme and Font 
+#
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+        gsettings set $gnome-schema gtk-theme 'Dracula-GTK'
+        gsettings set $gnome-schema icon-theme 'Sardi-Arc'
+        gsettings set $gnome-schema cursor-theme 'Breeze_Default'
+	gsettings set $gnome-schema cursor-size 16
+        gsettings set $gnome-schema font-name 'Liberation Sans 11'
+}
+seat seat0 xcursor_theme Breeze_Default 16
+#
+# Screen capture
+#
+set $ps1 Print
+set $ps2 Control+Print
+set $ps3 Alt+Print
+set $ps4 Alt+Control+Print
+ 
+bindsym $ps1 exec grim -g "$(slurp)" - | wl-copy
+bindsym $ps2 exec grim - | wl-copy
+bindsym $ps3 exec grim /home/triplek/Pictures/ps_$(date +"%Y%m%d%H%M%S").png
+bindsym $ps4 exec grim -g "$(slurp)" /home/triplek/Pictures/ps_$(date +"%Y%m%d%H%M%S").png
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+
+exec export XDG_CURRENT_DESKTOP=Unity
+exec xrdb merge .Xresources
+exec mako
+exec waybar
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 > /dev/null 2>&1
+
+# bar {
+#     	position top
+#	strip_workspace_numbers yes
+      	# tray_output none
+#     	status_command while sh ~/.config/scripts/shell; do sleep 1; done
+#     	colors {
+#         statusline #bd93f9
+#         background #282a36
+#	 separator #bd93f9
+         #syntax              border    bg      fg
+#         focused_workspace   #bd93f9 #bd93f9 #282a36
+#         active_workspace    #333333 #282a36 #bd93f9
+#         inactive_workspace  #282a36 #222222 #bd93f9
+#         urgent_workspace    #282a36 #f1fa8c #282a36
+#     	}
+# }
+
+
+include /etc/sway/config.d/*

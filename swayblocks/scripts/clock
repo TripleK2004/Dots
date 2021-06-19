@@ -1,0 +1,4 @@
+#!/bin/bash
+
+date="$(date "+%d %B (%a) %l:%M%p")"
+echo "full_text:🕓 ${date}"

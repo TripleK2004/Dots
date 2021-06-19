@@ -1,0 +1,4 @@
+#!/bin/bash
+
+alsa="$(amixer get Master | sed -n '6p' | awk '{print $5}')"
+ echo -e "^c#50fa7b^  ${alsa}"

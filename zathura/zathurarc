@@ -1,0 +1,54 @@
+# zathurarc
+
+# colors
+set statusbar-bg "#282a36"
+set statusbar-fg "#bd93f9"
+
+set completion-bg "#282a36"
+set completion-fg "#ff79c6"
+set completion-group-bg "#282a36"
+set completion-group-fg "bd93f9"
+set completion-highlight-bg "#44475a"
+set completion-highlight-fg "#50fa7b"
+
+set inputbar-bg "#282a36"
+set inputbar-fg "#bd93f9"
+
+set notification-bg "#90A959" 
+set notification-fg "#151515" 
+set notification-error-bg "#AC4142"
+set notification-error-fg "#151515"
+set notification-warning-bg "#AC4142" 
+set notification-warning-fg "#151515"
+
+set highlight-color "#F4BF75"
+set highlight-active-color "#6A9FB5"
+
+set recolor "true"
+set recolor-lightcolor "#000000" #00
+set recolor-darkcolor "#E0E0E0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+# font
+set font "JetBrainsMono Nerd Font 11"
+
+# settings
+set selection-clipboard clipboard
+set adjust-open "best-fit"
+set smooth-scroll "true"
+set window-height 1024
+set window-width 768
+set adjust-open width
+
+# use sqlite as bookmarks database backend
+set database sqlite
+
+# key bindings
+map <PageUp> navigate previous
+map <PageDown> navigate next
+
+map + zoom in
+map - zoom out
+
+map <C-q> quit
