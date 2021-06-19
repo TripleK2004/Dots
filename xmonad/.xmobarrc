@@ -1,0 +1,26 @@
+Config { font = "xft:JetBrainsMono Nerd Font:size=10:antialias=true:autohinting=true:Regular"
+	, additionalFonts = [ "xft:Font Awesome:size=12:antialias=true:autohinting=true"
+			     , "xft:Font Awesome 5 Free Solid:size=12:antialias=true:autohinting=true"
+			     , "xft:JetBrainsMono Nerd Font:size=13:antialias=true:autohinting=true"]
+        , borderColor = "#bd93f9"
+        --, border = BottomB
+        , bgColor = "#282a36"
+        , fgColor = "#bd93f9"
+        , position = TopW L 100
+	, overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+        , commands = [	Run Date "<fn=1>\xf274</fn> %d %B (%a) <fn=2>\xf017</fn> %l:%M %p" "date" 10
+			, Run Network "usb0" ["-t", "<fn=1>\xf103</fn> <tx> <fn=1>\xf102</fn> <rx>",
+			"-S", "true"] 30
+			, Run Memory ["-t", "<fn=1>\xf0c9</fn> <used> mib"] 30
+			, Run Volume "default" "Master" ["-t", "<fn=1>\xf028</fn> <volume>% <status>", "-c", "#ff5555" ] 30
+			, Run MultiCpu ["-t", "<fn=2>\xf2db</fn> <total>%", "-L", "20", "-H",
+			"70","-l", "#8be9fd", "-h", "#ff5555" ] 30
+			, Run CoreTemp ["-t", "<fn=3>\xf2c8</fn> <core0>°C", "-L", "60", "-H", "70",
+			"-l", "#f1fa8c", "-n", "#ff5555", "-h", "red"] 30
+                        , Run BatteryP ["BAT0"] [ "-t", "<acstatus> <fn=3>\xf58e</fn> <left>%" ]
+			1000
+			, Run UnsafeStdinReader]
+	, sepChar =  "%"
+	, alignSep = "}{"
+        , template = "%UnsafeStdinReader%}{ <fc=#ff5555>%usb0%</fc>   <fc=#ff79c6>%memory%</fc>   <fc=#8be9fd>%multicpu%</fc>   <fc=#f1fa8c>%coretemp%</fc>   <fc=#ffb86c>%battery%</fc>   <fc=#50fa7b>%default:Master%</fc>   <fc=#bd93f9>%date%</fc>"
+        }
