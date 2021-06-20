@@ -6,7 +6,6 @@ font pango: Liberation Sans 10
 title_align center
 
 default_border pixel 3
-
 gaps inner 9
 gaps outer 2
 
