@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ram="$(free -h | awk '{print $3}' | sed -n '2p')"
-echo -e "^c#ff79c6^  $ram"
+echo "^c#ff79c6^  $ram"

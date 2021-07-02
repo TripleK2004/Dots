@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 read cpu a b c previdle rest < /proc/stat
 prevtotal="$((a+b+c+previdle))"
@@ -7,4 +7,4 @@ read cpu a b c idle rest < /proc/stat
 total="$((a+b+c+idle))"
 cpu="$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))"
 icon=" "
-echo -e "^c#8be9fd^   $cpu %"
+echo "^c#8be9fd^   $cpu %"

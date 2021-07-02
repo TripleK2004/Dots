@@ -19,4 +19,6 @@ dunst &
 feh --randomize --recursive --bg-fill /home/triplek/Pictures/wallpapers/ &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 2> /dev/null &
 flameshot &
-tint2 -c /home/triplek/.config/tint2/tint2rc
+tint2 -c /home/triplek/.config/tint2/tint2rc &
+plank
+

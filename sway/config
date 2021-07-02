@@ -16,7 +16,7 @@ set $right l
 
 set $term st -e /bin/fish
 
-set $menu bemenu-run --fn 'Liberation Sans 12' --tb '#282a36' --tf '#bd93f9' --fb '#282a36' --ff '#8be9fd' --nb '#282a36' --nf '#f1fa8c' --hf '#50fa7b' --prompt debian
+set $menu bemenu-run --fn 'Liberation Sans 12' --tb '#282a36' --tf '#bd93f9' --fb '#282a36' --ff '#8be9fd' --nb '#282a36' --nf '#f1fa8c' --hb '#282a36' --hf '#50fa7b' --prompt debian
 #set $menu dmenu_run -fn 'Liberation Sans' -nb '#282a36' -nf '#bd93f9' -sb '#f1fa8c' -sf '#282a36' -h 23
 
 output * bg /home/triplek/Pictures/wallpapers/gentoo-drac.png fill
@@ -182,11 +182,12 @@ bindsym XF86AudioNext exec playerctl next
 #
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-        gsettings set $gnome-schema gtk-theme 'Dracula-GTK'
-        gsettings set $gnome-schema icon-theme 'Sardi-Arc'
-        gsettings set $gnome-schema cursor-theme 'Breeze_Default'
+        gsettings set $gnome-schema gtk-theme "Dracula-GTK"
+        gsettings set org.gnome.desktop.wm.preferences theme "Dracula-GTK"
+        gsettings set $gnome-schema icon-theme "Dracula"
+        gsettings set $gnome-schema cursor-theme "Breeze_Default"
 	gsettings set $gnome-schema cursor-size 16
-        gsettings set $gnome-schema font-name 'Liberation Sans 11'
+        gsettings set $gnome-schema font-name "Liberation Sans 11"
 }
 seat seat0 xcursor_theme Breeze_Default 16
 #

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/triplek/.local/share/omf/themes/pure/functions'
+let g:netrw_dirhist_3='/home/triplek/.local/share/omf/themes/pure'
+let g:netrw_dirhist_2='/home/triplek/.local/share/omf/themes/pure/conf.d'
+let g:netrw_dirhist_1='/home/triplek/.git-repos/st-build'
+let g:netrw_dirhist_0='/home/triplek/.git-repos'
+let g:netrw_dirhist_9='/home/triplek'
+let g:netrw_dirhist_8='/home/triplek/st-distrotube'
+let g:netrw_dirhist_7='/home/triplek/dwmb'
+let g:netrw_dirhist_6='/home/triplek'
+let g:netrw_dirhist_5='/home/triplek/.config'

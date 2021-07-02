@@ -1,0 +1,32 @@
+format = """$git_branch $git_commit $git_state $git_status $cmake
+ $directory$battery$cmd_duration$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+
+[cmd_duration]
+min_time = 5
+show_milliseconds = false
+format = "[$duration](bold yellow) "
+
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+
+[[battery.display]]
+threshold = 90
+style = "bold red"
+
+[directory]
+truncation_length = 1
+truncate_to_repo = true
+#truncation_symbol = "+"
+home_symbol="ﰣ"
+style = "bold purple"
+read_only = " "
+read_only_style = "bold blue"
+
+[git_branch]
+style = "bold blue"
