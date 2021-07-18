@@ -1,0 +1,70 @@
+# Window geometry
+padding.width: 12
+padding.height: 1
+border.width: 4
+window.client.padding.width: 1
+window.client.padding.height: 2
+window.handle.width: 0
+
+#Menu geometry
+menu.border.width: 0
+menu.overlap.x: 0
+menu.overlap.y: 0
+
+# Border colors
+window.active.border.color: #bd93f9
+window.inactive.border.color: #282a36
+menu.border.color: #bd93f9
+window.active.client.color: #bd93f9
+window.inactive.client.color: #282a36
+
+# Text shadows
+window.active.label.text.font: shadow=y:shadowtint=0:shadowoffset=0
+window.inactive.label.text.font: shadow=y:shadowtint=0:shadowoffset=0
+menu.items.font: shadow=n
+menu.title.text.font: shadow=n:shadowtint=0:shadowoffset=0
+
+# Window title justification
+window.label.text.justify: Center
+
+# Active window
+window.active.*.bg: Solid Flat
+window.active.*.bg.color: #bd93f9
+window.active.label.bg: Solid Flat
+window.active.label.text.color: #282a36
+window.active.button.*.bg: Solid Flat
+window.active.button.*.bg.color: #bd93f9
+window.active.button.*.*.bg: Solid Flat
+window.active.button.*.*.bg.color: #bd93f9
+
+# Inactive windows
+window.inactive.*.bg: Solid Flat
+window.inactive.*.bg.color: #282a36
+window.inactive.label.bg: Solid Flat
+window.inactive.label.text.color: #bd93f9
+window.inactive.button.*.bg: Solid Flat 
+window.inactive.button.*.bg.color: #282a36
+window.inactive.button.*.*.bg: Solid Flat 
+window.inactive.button.*.*..bgcolor: #282a36
+
+# Menus
+menu.*.bg: Solid Flat
+menu.*.bg.color: #282a36
+menu.*.color: #f8f8f2
+menu.title.text.color: #8be9fd
+menu.items.text.color: #6272a4
+menu.items.active.text.color: #ff79c6
+menu.title.text.justify: center
+
+# On Screen Dialogs
+osd.border.width: 2
+osd.border.color: #ff79c6
+osd.bg: flat solid
+osd.bg.color: #282a36
+osd.label.bg: Solid Flat
+osd.label.bg.color: #282a36
+osd.label.text.color: #bd93f9
+osd.hilight.bg: Solid Flat
+osd.hilight.bg.color: #282a36
+osd.unhilight.bg: Solid Flat
+osd.unhilight.bg.color: #282a36
