@@ -1,1 +1,0 @@
-/home/triplek/.fzf/shell/key-bindings.fish
